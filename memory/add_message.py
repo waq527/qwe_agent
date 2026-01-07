@@ -15,13 +15,13 @@ async def create_memories_with_message(conversation_id: str, message_id: str, ch
             # 2. 创建关联的 ChatMemory
             await ChatMemory.create(
                 message_id=message_memory,  # 这里传递 MessageMemory 实例
-                message=chat_message
+                chat_message=chat_message
             )
             
             # 3. 创建关联的 ToolMemory
             await ToolMemory.create(
                 message_id=message_memory,  # 这里传递 MessageMemory 实例
-                message=tool_message
+                tool_message=tool_message
             )
             
     except Exception as e:
